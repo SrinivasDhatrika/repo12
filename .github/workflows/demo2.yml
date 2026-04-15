@@ -1,8 +1,17 @@
-name: hello-world
-on: push
+name: Print Diamond
+
+on: [push]
+
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Print Diamond Pattern
+        run: |
+          python3 -c "
+          n = 5
+          for i in range(n):
+              print(' ' * (n - i - 1) + '*' * (2 * i + 1))
+          for i in range(n - 2, -1, -1):
+              print(' ' * (n - i - 1) + '*' * (2 * i + 1))
+          "
